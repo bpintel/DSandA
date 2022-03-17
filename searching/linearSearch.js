@@ -37,3 +37,4 @@ console.log('findIndex: ', arr.findIndex(el => el > 11)); //-1
 //some() =>
 console.log('some: ', arr.some(el => el > 1)); //true
 console.log('some: ', arr.some(el => el > 11)); //false
+
