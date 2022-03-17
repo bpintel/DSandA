@@ -1,5 +1,4 @@
-
-
+//TC: O(n^2) if data is almost sorted, then it is closer to O(n)
 
 
 const test1 = [1, 5, 2, 6, 4, 7, 3, 9, 8, 10];
@@ -28,6 +27,7 @@ const bubbleSortNaive = (arr) => {
 //swapping function
 const swap = (arr, idx1, idx2) => [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
 
+//modern swapping func
 const bubbleSortMod = (arr) => {
   for (let i = arr.length; i > 0; i--){
     for (let j = 0; j < i - 1; j++){
@@ -39,7 +39,7 @@ const bubbleSortMod = (arr) => {
   return arr;
 }
 
-
+//modern no swap optimization
 const bubbleSortOpt = (arr) => {
   let noSwaps;
   for (let i = arr.length; i > 0; i--){
@@ -53,8 +53,6 @@ const bubbleSortOpt = (arr) => {
   }
   return arr;
 }
-
-
 
 
 console.log(bubbleSortNaive(test2));
