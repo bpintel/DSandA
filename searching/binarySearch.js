@@ -16,7 +16,6 @@ console.log(numbers.sort((a, b) => b - a));  //descending order
   //if the val is too big move the right pointer down
 //if the val is not found return -1
 
-
 //binary search
 const sorted = [0, 3, 4, 5, 6, 8, 11, 22, 23, 35];
 
