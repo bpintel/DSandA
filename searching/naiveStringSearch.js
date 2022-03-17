@@ -1,4 +1,4 @@
-
+//TC: O(n^2)
 
 //want to count the number of times a smaller string appears in a longer string
 
