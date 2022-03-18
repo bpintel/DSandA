@@ -1,4 +1,4 @@
-//TC: O__
+//TC: O(n log n)
 
 //first learn how to merge two arrays
 
@@ -61,4 +61,4 @@ const mergeSort = (arr) => {
   return merge(left,right)
 }
 
-console.log(mergeSort([10,24,76,73,72,1,9]))
+console.log(mergeSort([10,24,76,73,72,1,9])) //[1,9,10,24,72,73,76]
