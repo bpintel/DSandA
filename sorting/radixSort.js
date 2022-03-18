@@ -21,8 +21,16 @@ const digitCount = (num) => {
   return Math.floor(Math.log10(Math.abs(num))) + 1;
 }
 
+const mostDigits = (numbers) => {
+  let maxDigits = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    maxDigits = Math.max(maxDigits, digitCount(numbers[i]))
+  }
+  return maxDigits;
+}
 
 const test = 1234;
-console.log('getDigit: ', getDigit(test, 2));
-console.log('digitCount: ', digitCount(test));
-
+const test2 = [1, 23, 455, 31234, 23];
+console.log('getDigit: ', getDigit(test, 2)); //2
+console.log('digitCount: ', digitCount(test));  //4
+console.log('mostDigits: ', mostDigits(test2)); //5
