@@ -1,4 +1,4 @@
-//TC: O__
+//TC: best and avg: O(n log n) worst: O(n^2)
 
 //split array into arrays of length 0 or 1 (already sorted)
 
