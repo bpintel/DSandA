@@ -180,38 +180,78 @@ class LinkedList {
 
   //remove(idx)
   //removes a node from a list
-
-
-  
+  //if the idx is out of range => return undefined
+  //if the idx is the same as length-1 pop()
+  //if the idx is zero, shift()
+  //otherwise use get to access the node at idx-1
+  //set the next prop on that node to be the next prop of the next node
+  //decrement the length
+  //return the value of the removed node
   remove(idx){
+    if (idx < 0 || idx > this.length) return undefined;
+    if (idx === this.length - 1) return this.pop();
+    if (idx === 0) return this.shift();
+
+    let prev = this.get(idx - 1);
+    let removed = prev.next;
+    prev.next = removed.next;
+    
+    this.length--;
+    return removed.val;
 
   }
 
-  // reverse(){
+  //reverse()
+  //reverse the linked list in place (traverse & reverse)
 
-  // }
+  //swap the head and the tail
+  //create a var called next
+  //create a var called prev
+  //create a var called node and initialize it to the head prop
+  //loop through the list
+  //set next to be the next prop on whatever node is
+  //set the next prop on the node to be whatever prev is
+  //set prev to be the value of the node var
+  //set the node var to be the val of the next var
+  reverse(){
+    var node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let prev = null;
+    let next;
+    for(let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
+
+  //prints an array of all values in order
+  print() {
+    var arr= [];
+    var current = this.head;
+    while(current) {
+      arr.push(current.val);
+      current = current.next
+    }
+    return arr;
+  }
+
 }
 
 let list = new LinkedList()
-// list.push('hello')
-// list.push('world')
-// console.log(list)
-// console.log(list.head.next)
-// console.log(list.tail)
-// console.log(list.tail === list.head.next)
-// console.log(list.pop())
-// console.log(list.shift(), list)
-// console.log(list.get(0))
-// console.log(list.get(1))
-// list.push('!')
-// console.log(list.get(2))
-// console.log(list.set(1, 'update'))
-// console.log(list.get(1))
-
-list.push(1);
-list.push(2);
+list.push('first')
+list.push('second')
+list.push('third')
+list.push('fourth')
+list.push('fifth')
 
 
-console.log(list)
-list.insert(0, 'first');
-console.log(list)
+
+console.log(list.print())
+list.reverse();
+console.log(list.print())
+console.log(list.head)
+console.log(list.tail)
