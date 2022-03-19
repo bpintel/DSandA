@@ -166,14 +166,26 @@ class LinkedList {
     //increment the length
     //return true
   insert(idx, val){
-
-
+    if (idx < 0 || idx > this.length) return false;
+    if (idx === this.length) return !!this.push(val);
+    if (idx === 0) return !!this.unshift(val);
+    let newNode = new Node(val);
+    let prev = this.get(idx - 1);
+    let temp = prev.next;
+    prev.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
   }
 
+  //remove(idx)
+  //removes a node from a list
 
-  // remove(idx){
 
-  // }
+  
+  remove(idx){
+
+  }
 
   // reverse(){
 
@@ -181,17 +193,25 @@ class LinkedList {
 }
 
 let list = new LinkedList()
-list.push('hello')
-list.push('world')
+// list.push('hello')
+// list.push('world')
 // console.log(list)
 // console.log(list.head.next)
 // console.log(list.tail)
 // console.log(list.tail === list.head.next)
 // console.log(list.pop())
 // console.log(list.shift(), list)
-console.log(list.get(0))
-console.log(list.get(1))
-list.push('!')
-console.log(list.get(2))
-console.log(list.set(1, 'update'))
-console.log(list.get(1))
+// console.log(list.get(0))
+// console.log(list.get(1))
+// list.push('!')
+// console.log(list.get(2))
+// console.log(list.set(1, 'update'))
+// console.log(list.get(1))
+
+list.push(1);
+list.push(2);
+
+
+console.log(list)
+list.insert(0, 'first');
+console.log(list)
