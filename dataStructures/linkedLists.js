@@ -1,4 +1,3 @@
-
 /*
 A linked list is an ordered list but without indexes
 consists of nodes that point to the next element in the list
@@ -14,7 +13,6 @@ Arrays have expensive insertion and deletion
 Arrays are good for quickly finding something by index
 */
 
-
 class Node {
   constructor(val){
     this.val = val;
@@ -22,13 +20,13 @@ class Node {
   }
 }
 
-
 class LinkedList {
   constructor(){
     this.head = null;
     this.tail = null;
     this.length = 0;
   }
+
   //PUSH(val) O(1)
   //accepts a value
   //create a new node with the value
@@ -60,7 +58,6 @@ class LinkedList {
   //decrement the length
   //create edge case for a list with length of 1
   //return the val of the removed node
-
   pop(){ //O(n)
     if (!this.head) return undefined;
     let current = this.head;
@@ -78,6 +75,7 @@ class LinkedList {
     }
     return current;
   }
+
   //shift() O(1)
   //removes a node from the beginning of the list
   //if no nodes, return undefined
@@ -118,15 +116,82 @@ class LinkedList {
     return this;
   }
 
+  //get(idx) O(n)
+  //returns a node based on index
+  //if the index is not in range (less than zero or longer than the length)
+    //return undefined
+    //create a counter var
+    //create a target var set to this.head
+  //loop through the array while counter is not equal to idx
+    //set target to target.next
+    //increment counter
+  //return the target node.
+  get(idx){
+    if (idx < 0 || idx >= this.length) return undefined;
+    let counter = 0;
+    let target = this.head;
+    while (counter !== idx){
+      target = target.next;
+      counter++
+    }
+    return target;
+  }
 
+  //set(idx, val) 
+  //updates the value of a node at a specific index
+  //use get() to find the specific nod
+  //if the node is found, update the val and return true
+  //if not found return false
+
+  set(idx, val){
+    let node = this.get(idx)
+    if (node){
+      node.val = val;
+      return true;
+    }
+    return false;
+  }
+
+  //insert(idx, val)
+  //inserts a new node at a specific index
+  //if the index is out of range, return false
+  //if the index is equal to length
+    //push() a new node to end of list
+  //if the index is 0
+    //unshift() a new node to the beginning of the list
+  //otherwise
+    //use get() to access the node at the index - 1
+    //set the next property on that node to be the new node
+    //set the next property on the new node to be the previous next
+    //increment the length
+    //return true
+  insert(idx, val){
+
+
+  }
+
+
+  // remove(idx){
+
+  // }
+
+  // reverse(){
+
+  // }
 }
 
 let list = new LinkedList()
 list.push('hello')
-// list.push('world')
+list.push('world')
 // console.log(list)
 // console.log(list.head.next)
 // console.log(list.tail)
 // console.log(list.tail === list.head.next)
 // console.log(list.pop())
 // console.log(list.shift(), list)
+console.log(list.get(0))
+console.log(list.get(1))
+list.push('!')
+console.log(list.get(2))
+console.log(list.set(1, 'update'))
+console.log(list.get(1))
