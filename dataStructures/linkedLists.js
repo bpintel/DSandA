@@ -11,6 +11,13 @@ RANDOM ACCESS IS NOT POSSIBLE
 
 Arrays have expensive insertion and deletion
 Arrays are good for quickly finding something by index
+
+TC:
+  insertion:   O(1)
+  removal:     O(1) => worst case is O(n)
+  searching:   O(n)
+  access:      O(n)
+
 */
 
 class Node {
@@ -152,7 +159,7 @@ class LinkedList {
     return false;
   }
 
-  //insert(idx, val)
+  //insert(idx, val)    O(1)
   //inserts a new node at a specific index
   //if the index is out of range, return false
   //if the index is equal to length
@@ -178,7 +185,7 @@ class LinkedList {
     return true;
   }
 
-  //remove(idx)
+  //remove(idx) O(1) or O(n)
   //removes a node from a list
   //if the idx is out of range => return undefined
   //if the idx is the same as length-1 pop()
