@@ -6,6 +6,15 @@ still no random access or indexes
 
 uses more memory than linked list, but it is more flexible 
 
+TC: 
+insertion:  O(1)
+removal:    O(1)
+searching:  O(n)
+access:     O(n)
+
+DLL is better than LL for removal
+DLL is better when working backwards down a list
+
 */
 
 
@@ -106,7 +115,6 @@ class DblLinkedList {
 
   }
 
-  
   //unshift(val)
   // create a new node with the val
   // if the length is zero
@@ -132,7 +140,6 @@ class DblLinkedList {
     return this;
   }
 
-
   //get(idx) 
   //takes a index and returns the node at the index
   //if the idx is out of range => return null
@@ -142,7 +149,6 @@ class DblLinkedList {
   //if the idx is greater than 1/2 the length of the list
     //loop through the list starting from the tail and loop towards the middle
     //return the node once it id found
-
   get(idx){
     if (idx < 0 || idx >= this.length) return null;
     let count, current;
@@ -224,9 +230,6 @@ class DblLinkedList {
     return removed;
   }
 
-
-
-
 }
 
 let list = new DblLinkedList();
@@ -240,6 +243,6 @@ list.push('fifth')
 console.log(list.print())
 console.log('******')
 console.log(list.remove(2))
-console.log('******')
+console.log('******') 
 console.log(list.print())
 
