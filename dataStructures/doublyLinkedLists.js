@@ -97,12 +97,37 @@ class DblLinkedList {
 
   }
 
+  
+  //unshift(val)
+  // create a new node with the val
+  // if the length is zero
+  // set head and tail to new node
+  //otherwise
+  //set the pre prop  on the head to be the head of the new node
+  //set the next prop on the new node to be head prop
+  //update the head to be the new node
+  //increment the length
+  //return the list
 
-
+  unshift(val){
+    let newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
+
 let list = new DblLinkedList();
 list.push('first')
 list.push('second')
-console.log(list.shift());
-console.log(list.shift());
-console.log(list.shift());
+console.log(list.unshift('1'));
+
+
+console.log(list)
