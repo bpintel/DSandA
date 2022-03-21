@@ -12,6 +12,10 @@ RANDOM ACCESS IS NOT POSSIBLE
 Arrays have expensive insertion and deletion
 Arrays are good for quickly finding something by index
 
+linked lists are excellent alternative to arrays when insertion and deletion at the beginning are frequently used
+Arrays contain a built in index where linked lists do not
+
+
 TC:
   insertion:   O(1)
   removal:     O(1) => worst case is O(n)
