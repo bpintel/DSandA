@@ -24,6 +24,15 @@ class DblLinkedList {
     this.length = 0;
   }
 
+  print() {
+    var arr= [];
+    var current = this.head;
+    while(current) {
+      arr.push(current.val);
+      current = current.next
+    }
+    return arr;
+  }
 
   //push(val)
   //adds a node to the end of the list
@@ -191,6 +200,30 @@ class DblLinkedList {
     return true;
   }
 
+  //remove(idx)
+  //removes a node in a DLL by its position (idx)
+  //if the index is out of range => return undefined
+  //if the index is 0, shift()
+  //if the idx is the same as length-1, pop()
+  //use get() to retrieve the node to be removed
+  //update the next and prev props to remove the found node from the list
+  //set the next and prev on removed node to null
+  //decrement the length
+  //return the removed node
+  remove(idx){
+    if (idx < 0 || idx >= this.length) return undefined;
+    if (idx === 0) return this.shift();
+    if (idx === this.length - 1) return this.pop();
+
+    let removed = this.get(idx);
+    removed.prev.next = removed.next;
+    removed.next.prev = removed.prev;
+    removed.next = null;
+    removed.prev = null
+    this.length--;
+    return removed;
+  }
+
 
 
 
@@ -204,7 +237,9 @@ list.push('fourth')
 list.push('fifth')
 
 
-
-console.log(list.insert(1, 'inserted'))
-console.log(list.get(1))
+console.log(list.print())
+console.log('******')
+console.log(list.remove(2))
+console.log('******')
+console.log(list.print())
 
