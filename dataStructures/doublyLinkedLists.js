@@ -155,6 +155,45 @@ class DblLinkedList {
     return current;
   }
 
+  //set(idx, val)
+  // replaces the value of a node (updates)
+  // create a var which is the result of the get method 
+    //at the index passed in to the function
+  // if the get method returns a valid node, update that nodes val
+  //return true
+  set(idx, val) {
+    let target = this.get(idx);
+    if (target !== null){
+      target.val = val;
+      return true;
+    }
+    return false;
+  }
+
+  //insert()
+  // if the idx is out of range return false
+  //if the index is 0 use unshift
+  //if the idx is the same as the length use push
+    //otherwise use the get method to access the index -1
+  //set the next and prev props on the correct nodes to link everything together.
+  insert(idx, val) {
+    if (idx < 0 || idx > this.length) return false;
+    if (idx === 0) return !!this.unshift(val);
+    if (idx === this.length) return !!this.push(val);
+    let newNode = new Node(val);
+    let beforeNode = this.get(idx - 1); 
+    let afterNode =  beforeNode.next;
+    beforeNode.next = newNode;
+    newNode.prev = beforeNode;
+    newNode.next = afterNode;
+    afterNode.prev = newNode;
+    this.length++;
+    return true;
+  }
+
+
+
+
 }
 
 let list = new DblLinkedList();
@@ -166,5 +205,6 @@ list.push('fifth')
 
 
 
+console.log(list.insert(1, 'inserted'))
 console.log(list.get(1))
-console.log(list.get(3))
+
