@@ -122,12 +122,49 @@ class DblLinkedList {
     this.length++;
     return this;
   }
+
+
+  //get(idx) 
+  //takes a index and returns the node at the index
+  //if the idx is out of range => return null
+  // if the idx is less than or equal to 1/2 the length of the list
+    //loop through the list starting from the head and loop towards the middle
+    //return the node once it is found
+  //if the idx is greater than 1/2 the length of the list
+    //loop through the list starting from the tail and loop towards the middle
+    //return the node once it id found
+
+  get(idx){
+    if (idx < 0 || idx >= this.length) return null;
+    let count, current;
+    if (idx <= this.length/2) {
+      count = 0;
+      current = this.head;
+      while (count !== idx){
+        current = current.next;
+        count++;
+      }
+    } else {
+      count = this.length-1;
+      current = this.tail;
+      while (count !== idx){
+        current = current.prev;
+        count--;
+      }
+    }
+    return current;
+  }
+
 }
 
 let list = new DblLinkedList();
 list.push('first')
 list.push('second')
-console.log(list.unshift('1'));
+list.push('third')
+list.push('fourth')
+list.push('fifth')
 
 
-console.log(list)
+
+console.log(list.get(1))
+console.log(list.get(3))
